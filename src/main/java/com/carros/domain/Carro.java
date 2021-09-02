@@ -18,4 +18,7 @@ public class Carro {
 
     @Column(name = "nome") // para mapear coluna
     private String nome;
+
+    @Column(name = "tipo") // para mapear coluna
+    private String tipo;
 }
