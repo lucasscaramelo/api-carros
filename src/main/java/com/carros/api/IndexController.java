@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class IndexController {
 
     @GetMapping
-    public String hello() {
-        return "Hello Spring Boot";
+    public String get() {
+        return "API dos Carros";
     }
 }
