@@ -3,10 +3,7 @@ package com.carros.api;
 import com.carros.domain.Carro;
 import com.carros.domain.CarroService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
@@ -28,8 +25,20 @@ public class CarrosController {
         return service.getCarroById(id);
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/tipo/{tipo}")
     public Iterable<Carro> getCarrosByTipo(@PathVariable("tipo") String tipo) {
         return service.getCarroByTipo(tipo);
+    }
+
+    @PostMapping
+    public void post(@RequestBody Carro carro) {
+        service.save(carro);
+    }
+
+    @DeleteMapping("/{id}")
+    public String delete(@PathVariable("id") Long id) {
+        service.delete(id);
+
+        return "Carro deletado com sucesso";
     }
 }

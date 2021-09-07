@@ -25,6 +25,18 @@ public class CarroService {
         return repository.findByTipo(tipo);
     }
 
+    public Carro save(Carro carro) {
+        return repository.save(carro);
+    }
+
+    public void delete(Long id) {
+        Optional<Carro> carro = getCarroById(id);
+        if (carro.isPresent()) {
+            repository.deleteById(id);
+        }
+    }
+
+    /*
     public List<Carro> getCarrosFake() {
         List<Carro> carros = new ArrayList<>();
         carros.add(new Carro(1L, "Civic"));
@@ -32,5 +44,5 @@ public class CarroService {
         carros.add(new Carro(3L, "HRV"));
 
         return carros;
-    }
+    }*/
 }
